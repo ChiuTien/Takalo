@@ -83,7 +83,7 @@
                         <div class="form-group animate-item delay-1">
                             <label for="nom">Nom utilisateur</label>
                             <div class="input-wrapper">
-                                <input type="text" name="nom" class="form-control-custom" id="nom" placeholder="Nom d'utilisateur" value="Christelle" required>
+                                <input type="text" name="nom" class="form-control-custom" id="nom" placeholder="Nom d'utilisateur" value="Martin" required>
                                 <span class="input-icon">👤</span>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="form-group animate-item delay-1">
                             <label for="password">Mot de passe</label>
                             <div class="input-wrapper">
-                                <input type="password" name="mdp" class="form-control-custom" id="password" placeholder="••••••••" value="TETELLE" required>
+                                <input type="password" name="mdp" class="form-control-custom" id="password" placeholder="••••••••" value="pass456" required>
                                 <span class="input-icon">🔒</span>
                             </div>
                         </div>
