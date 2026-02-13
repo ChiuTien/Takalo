@@ -77,11 +77,11 @@
                         <p>Connectez-vous pour accéder à votre espace d'échange</p>
                     </div>
 
-                    <form action="login" method="post">
+                    <form action="accueil" method="post">
                         <div class="form-group animate-item delay-1">
                             <label for="email">Adresse email</label>
                             <div class="input-wrapper">
-                                <input type="email" name="email" class="form-control-custom" id="email" placeholder="nom@exemple.com" required>
+                                <input type="email" name="email" class="form-control-custom" id="email" placeholder="nom@exemple.com" value="Christelle@gmail.com" required>
                                 <span class="input-icon">✉️</span>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                         <div class="form-group animate-item delay-1">
                             <label for="password">Mot de passe</label>
                             <div class="input-wrapper">
-                                <input type="password" name="mdp" class="form-control-custom" id="password" placeholder="••••••••" required>
+                                <input type="password" name="mdp" class="form-control-custom" id="password" placeholder="••••••••" value="TETELLE" required>
                                 <span class="input-icon">🔒</span>
                             </div>
                         </div>
