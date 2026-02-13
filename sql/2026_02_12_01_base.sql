@@ -1,0 +1,5 @@
+CREATE OR REPLACE TABLE admin(
+    idAdmin INT PRIMARY KEY AUTO_INCREMENT,
+    loginAdmin VARCHAR(100),
+    mdpAdmin VARCHAR(100)
+);
