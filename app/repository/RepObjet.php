@@ -74,15 +74,27 @@
         }
         public function getAllObjet(): array{
             try {
-                $sql = "SELECT * FROM objet";
+                $sql = "SELECT * FROM viewObjet";
                 $stmt = $this->db->query($sql);
                 $objets = [];
                 while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $objet = new Objet();
                     $objet->setIdObjet($data['idObjet']);
                     $objet->setNomObjet($data['nomObjet']);
-                    $objet->setIdProprietaire($data['idProprietaire']);
-                    $objet->setIdCategorie($data['idCategorie']);
+                    // $objet->setIdProprietaire($data['idProprietaire']);
+                    // $objet->setIdCategorie($data['idCategorie']);
+                    $objet->setDescriptionObjet($data['descriptionObjet']);
+
+                    $user = new User();
+                    $user->setNomUser($data['nomUser']);
+                    $user->setPrenomUser($data['prenomUser']);
+
+                    $objet->setUser($user);
+
+                    $categorie = new Categorie();
+                    $categorie->setNomCategorie($data['nomCategorie']);
+                    $objet->setCategorie($categorie);
+
                     $objets[] = $objet;
                 }
                 
