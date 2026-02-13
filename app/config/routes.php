@@ -46,8 +46,7 @@ $router->group('', function(Router $router) use ($app) {
 				session_start();
 				$_SESSION['user_id'] = $user->getIdUser();
 				echo "Connexion réussie pour l'utilisateur : " . $user->getNomUser();
-				// $app->redirect('/accueil');
-				return;
+				$app->redirect('/categorie');
 			}
 		}
 
