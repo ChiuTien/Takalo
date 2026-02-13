@@ -8,6 +8,8 @@
 	use app\controllers\ControllerCategorie;
 	use app\controllers\ControllerObjet;
 	use app\models\Categorie;
+	use app\controllers\ControllerAdmin;
+
 /** 
  * @var Router $router 
  * @var Engine $app
@@ -109,15 +111,25 @@ $router->group('', function(Router $router) use ($app) {
 		$nom = $app->request()->data->NomAdmin;
 		$mdp = $app->request()->data->MdpAdmin;
 
-		if($nom === 'admin' && $mdp === 'admin') {
-			session_start();
-			$_SESSION['admin'] = true;
-			echo "Connexion réussie pour l'administrateur.";
-			$app->render('admin-dashboard');
-		} else {
-			echo "Nom d'utilisateur ou mot de passe incorrect pour l'administrateur.";
-			$app->render('admin-login', ['error' => 'Nom d\'utilisateur ou mot de passe incorrect.']);
+		if(empty($nom) || empty($mdp)) {
+			$app->render('admin-login',['error' => 'nom et mot de passe sont requis.']);
+			return;
 		}
+
+		$adminController = new ControllerAdmin();
+		$admin = $adminController->listAdmin();
+
+		foreach($admin as $admin) {
+			if($admin->getLoginAdmin() === $nom && $admin->getMdpAdmin() === $mdp) {
+				session_start();
+				$_SESSION['admin_id'] = $admin->getIdAdmin();
+				//$app->render('admin-dashboard');
+				//return;
+				echo "Connexion admin reussie pour l'administrateur : " . $admin->getLoginAdmin();
+			}
+		}
+
+		//$app->render('admin-login', ['error' => 'Nom d\'utilisateur ou mot de passe incorrect.']);
 	});
 	
 }, [ SecurityHeadersMiddleware::class ]);

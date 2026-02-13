@@ -24,6 +24,9 @@
             public function getAdminById(int $idAdmin): Admin{
                 return $this->repAdmin->getAdminById($idAdmin);
             }
+            public function listAdmin(): array{
+                return $this->repAdmin->getAllAdmins();
+            }
         //Methodes supplementaires
     }
 ?>

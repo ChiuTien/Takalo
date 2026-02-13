@@ -1,0 +1,1 @@
+INSERT INTO admin(loginAdmin,mdpAdmin) VALUES ('admin', 'admin123');
