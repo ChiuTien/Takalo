@@ -51,11 +51,11 @@
                         <p>Rejoignez des milliers d'utilisateurs</p>
                     </div>
 
-                    <form id="signupForm">
+                    <form id="signupForm" action="enregistrer" method="POST">
                         <div class="form-group animate-item delay-1">
                             <label for="nom">Nom </label>
                             <div class="input-wrapper">
-                                <input type="text" class="form-control-custom" id="nom" placeholder="Jean Dupont" required>
+                                <input type="text" name="nom" class="form-control-custom" id="nom" placeholder="Jean Dupont" required>
                                 <span class="input-icon">👤</span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                         <div class="form-group animate-item delay-1">
                             <label for="prenom">Prenom</label>
                             <div class="input-wrapper">
-                                <input type="text" class="form-control-custom" id="prenom" placeholder="Jean" required>
+                                <input type="text" name="prenom" class="form-control-custom" id="prenom" placeholder="Jean" required>
                                 <span class="input-icon">👤</span>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="form-group animate-item delay-1">
                             <label for="password">Mot de passe</label>
                             <div class="input-wrapper">
-                                <input type="password" class="form-control-custom" id="password" placeholder="••••••••" required>
+                                <input type="password" name="mdp" class="form-control-custom" id="password" placeholder="••••••••" required>
                                 <span class="input-icon">🔒</span>
                             </div>
                         </div>

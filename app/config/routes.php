@@ -4,6 +4,7 @@
 	use flight\Engine;
 	use flight\net\Router;
 	use app\controllers\ControllerUser;
+	use \app\models\User;
 
 /** 
  * @var Router $router 
@@ -13,10 +14,20 @@
 // This wraps all routes in the group with the SecurityHeadersMiddleware
 $router->group('', function(Router $router) use ($app) {
 
+	//Les Get
 	$router->get('/', function() use ($app) {
 		$app->render('welcome');
 	});
 
+	$router->get('/admin-login', function() use ($app) {
+		$app->render('admin-login');
+	});
+
+	$router->get('/inscription', function() use ($app) {
+		$app->render('inscription');
+	});
+
+	//Les Post
 	$router->post('/accueil', function() use ($app) {
 		// Récupérer les données du formulaire
 		$nom = $app->request()->data->nom;
@@ -44,12 +55,30 @@ $router->group('', function(Router $router) use ($app) {
 		$app->render('welcome', ['error' => 'nom ou mot de passe incorrect.']);
 	});
 
-	$router->get('/admin-login', function() use ($app) {
-		$app->render('admin-login');
-	});
+	$router->post('/enregistrer', function() use ($app) {
+		$nom = $app->request()->data->nom;
+		$prenom = $app->request()->data->prenom;
+		$mdp = $app->request()->data->mdp;
 
-	$router->get('/inscription', function() use ($app) {
-		$app->render('inscription');
+		if(empty($nom) || empty($prenom) || empty($mdp)) {
+			$app->render('inscription', ['error' => 'Tous les champs sont requis.']);
+			return;
+		}
+
+		$user = new User();
+		$user->setNomUser($nom);
+		$user->setPrenomUser($prenom);
+		$user->setMdpUser($mdp);
+
+		try {
+			$controllerUser = new ControllerUser();
+			$controllerUser->addUser($user);
+			echo "Inscription réussie pour l'utilisateur : " . $user->getNomUser();
+			// $app->redirect('/');
+		} catch (\Throwable $th) {
+			echo "Erreur lors de l'inscription : " . $th->getMessage();
+			// $app->render('inscription', ['error' => 'Erreur lors de l\'inscription.']);
+		}
 	});
 	
 }, [ SecurityHeadersMiddleware::class ]);
