@@ -11,7 +11,7 @@
         public function setIdCategorie($id) {
             $this->idCategorie = $id;
         }
-        public function setNomCategorie($val) {
+        public function setValCategorie($val) {
             $this->valCategorie = $val;
         }
     //Getters
