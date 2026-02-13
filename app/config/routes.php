@@ -6,9 +6,15 @@
 	use app\controllers\ControllerUser;
 	use \app\models\User;
 	use app\controllers\ControllerCategorie;
+<<<<<<< HEAD
 	use app\controllers\ControllerObjet;
 	use app\models\Categorie;
 
+=======
+	use app\models\Categorie;
+	use app\controllers\ControllerObjet;
+	use app\models\Objets;
+>>>>>>> origin/Christelle
 /** 
  * @var Router $router 
  * @var Engine $app
@@ -71,7 +77,12 @@ $router->group('', function(Router $router) use ($app) {
 				session_start();
 				$_SESSION['user_id'] = $user->getIdUser();
 				echo "Connexion réussie pour l'utilisateur : " . $user->getNomUser();
+<<<<<<< HEAD
 				$app->render('categorie');
+=======
+				$app->redirect('/categorie');
+				return;
+>>>>>>> origin/Christelle
 			}
 		}
 

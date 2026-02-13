@@ -5,8 +5,8 @@
     //Attributs
         private $idObjet;
         private $nomObjet;
-        private $idCategorie;
-        private $idProprietaire;
+        private Categorie $categorie;
+        private User $proprietaire;
         private $descriptionObjet;
     //Constructeur
         public function __construct() {}
@@ -17,11 +17,11 @@
         public function setNomObjet($nom) {
             $this->nomObjet = $nom;
         }
-        public function setIdCategorie($id) {
-            $this->idCategorie = $id;
+        public function setCategorie(Categorie $categorie) {
+            $this->categorie = $categorie;
         }
-        public function setIdProprietaire($id) {
-            $this->idProprietaire = $id;
+        public function setProprietaire(User $proprietaire) {
+            $this->proprietaire = $proprietaire;
         }
         public function setDescriptionObjet($description) {
             $this->descriptionObjet = $description;
@@ -33,11 +33,11 @@
         public function getNomObjet() {
             return $this->nomObjet;
         }
-        public function getIdCategorie() {
-            return $this->idCategorie;
+        public function getCategorie() {
+            return $this->categorie;
         }
-        public function getIdProprietaire() {
-            return $this->idProprietaire;
+        public function getProprietaire() {
+            return $this->proprietaire;
         }
         public function getDescriptionObjet() {
             return $this->descriptionObjet;
