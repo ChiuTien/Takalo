@@ -23,7 +23,6 @@ $router->group('', function(Router $router) use ($app) {
 		$mdp = $app->request()->data->mdp;
 
 		if(empty($email) || empty($mdp)) {
-			// $app->flash('error', 'Veuillez remplir tous les champs.');
 			$app->redirect('/');
 			return;
 		}
@@ -34,7 +33,6 @@ $router->group('', function(Router $router) use ($app) {
 		foreach($users as $user) {
 			if($user->getEmail() === $email && $user->getMdp() === $mdp) {
 				echo "Connexion réussie pour l'utilisateur : " . $user->getEmail();
-				// $app->flash('success', 'Connexion réussie !');
 				// $app->redirect('/accueil');
 				return;
 			}
