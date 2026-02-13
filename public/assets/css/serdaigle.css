@@ -1,0 +1,233 @@
+/* 
+ * Thème Serdaigle Sombre - Sagesse et Intelligence
+ * Couleurs principales: Bleu profond (#0E1A40, #222F5B) et Bronze (#946B2D, #CD7F32)
+ */
+
+/* Variables de couleur Serdaigle */
+:root {
+    --ravenclaw-dark-blue: #0E1A40;
+    --ravenclaw-blue: #222F5B;
+    --ravenclaw-light-blue: #5D5D5D;
+    --ravenclaw-bronze: #946B2D;
+    --ravenclaw-light-bronze: #CD7F32;
+    --ravenclaw-bg-dark: #05080f;
+    --ravenclaw-bg-medium: #0a1128;
+}
+
+/* Cartes Serdaigle */
+.serdaigle-card {
+    background: linear-gradient(135deg, var(--ravenclaw-bg-dark) 0%, var(--ravenclaw-dark-blue) 50%, var(--ravenclaw-bg-dark) 100%);
+    border: 2px solid var(--ravenclaw-bronze);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(34, 47, 91, 0.3), 0 0 20px rgba(148, 107, 45, 0.2);
+    transition: all 0.3s ease;
+}
+
+.serdaigle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(34, 47, 91, 0.4), 0 0 30px rgba(205, 127, 50, 0.3);
+    border-color: var(--ravenclaw-light-bronze);
+}
+
+/* En-tête de carte Serdaigle */
+.serdaigle-card-header {
+    background: linear-gradient(135deg, var(--ravenclaw-dark-blue) 0%, var(--ravenclaw-blue) 100%);
+    border-bottom: 3px solid var(--ravenclaw-bronze);
+    padding: 1.5rem;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Corps de carte */
+.serdaigle-card .card-body {
+    background: rgba(5, 8, 15, 0.6);
+    color: #f8f9fa;
+    padding: 1.25rem;
+}
+
+/* Pied de carte */
+.serdaigle-card .card-footer {
+    background: linear-gradient(135deg, var(--ravenclaw-bg-dark) 0%, var(--ravenclaw-bg-medium) 100%);
+    border-top: 2px solid var(--ravenclaw-bronze);
+    padding: 0.75rem 1.25rem;
+}
+
+/* Titre de carte */
+.serdaigle-card .card-title {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Boutons Serdaigle */
+.btn-serdaigle {
+    background: linear-gradient(135deg, var(--ravenclaw-dark-blue) 0%, var(--ravenclaw-blue) 100%);
+    border: 2px solid var(--ravenclaw-bronze);
+    color: var(--ravenclaw-light-bronze);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-serdaigle:hover {
+    background: linear-gradient(135deg, var(--ravenclaw-blue) 0%, var(--ravenclaw-light-blue) 100%);
+    border-color: var(--ravenclaw-light-bronze);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(148, 107, 45, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-serdaigle:active {
+    transform: translateY(0);
+}
+
+/* Badges Serdaigle */
+.badge-serdaigle {
+    background: linear-gradient(135deg, var(--ravenclaw-bronze) 0%, var(--ravenclaw-light-bronze) 100%);
+    color: var(--ravenclaw-dark-blue);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--ravenclaw-dark-blue);
+}
+
+/* Champs de formulaire Serdaigle */
+.form-control-serdaigle {
+    background-color: rgba(5, 8, 15, 0.8);
+    border: 2px solid var(--ravenclaw-blue);
+    color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.form-control-serdaigle:focus {
+    background-color: rgba(10, 17, 40, 0.9);
+    border-color: var(--ravenclaw-bronze);
+    box-shadow: 0 0 0 0.25rem rgba(148, 107, 45, 0.25);
+    color: #ffffff;
+}
+
+.form-control-serdaigle::placeholder {
+    color: rgba(148, 107, 45, 0.5);
+}
+
+/* Alertes Serdaigle */
+.alert-serdaigle {
+    background: linear-gradient(135deg, rgba(14, 26, 64, 0.8) 0%, rgba(34, 47, 91, 0.8) 100%);
+    border: 2px solid var(--ravenclaw-bronze);
+    color: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Images de carte avec bordure Serdaigle */
+.serdaigle-card img {
+    border-bottom: 3px solid var(--ravenclaw-bronze);
+}
+
+/* Liens dans les cartes */
+.serdaigle-card a {
+    color: var(--ravenclaw-light-bronze);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.serdaigle-card a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Texte clair secondaire */
+.text-light-50 {
+    color: rgba(248, 249, 250, 0.7);
+}
+
+/* Ajustements pour les icônes */
+.serdaigle-card i {
+    transition: transform 0.3s ease;
+}
+
+.serdaigle-card:hover i.fa-dove,
+.serdaigle-card:hover i.fa-feather,
+.serdaigle-card:hover i.fa-book {
+    transform: scale(1.1);
+}
+
+/* Gradient Serdaigle pour le fond */
+.serdaigle-gradient {
+    background: linear-gradient(135deg, var(--ravenclaw-dark-blue) 0%, var(--ravenclaw-blue) 50%, var(--ravenclaw-dark-blue) 100%);
+}
+
+/* Navigation Serdaigle */
+.serdaigle-nav {
+    background: linear-gradient(to right, #05080f, #0E1A40, #222F5B);
+    border-bottom: 3px solid var(--ravenclaw-bronze);
+}
+
+/* Logo Serdaigle */
+.serdaigle-logo {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ravenclaw-light-bronze) !important;
+}
+
+/* Dropdowns Serdaigle */
+.dropdown-menu {
+    background-color: var(--ravenclaw-dark-blue) !important;
+    border: 2px solid var(--ravenclaw-bronze) !important;
+}
+
+.dropdown-item {
+    color: #f8f9fa !important;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(148, 107, 45, 0.2) !important;
+    color: var(--ravenclaw-light-bronze) !important;
+}
+
+.dropdown-divider {
+    border-color: var(--ravenclaw-bronze) !important;
+}
+
+/* Effet de brillance sur les icônes */
+.serdaigle-card i.fa-dove,
+.serdaigle-card i.fa-feather,
+.serdaigle-card i.fa-book,
+.serdaigle-card .text-bronze {
+    color: var(--ravenclaw-bronze) !important;
+    text-shadow: 0 0 10px rgba(148, 107, 45, 0.5);
+}
+
+/* Animation subtile de pulsation pour les éléments importants */
+@keyframes serdaigle-pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(148, 107, 45, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(148, 107, 45, 0.6);
+    }
+}
+
+.serdaigle-card-header {
+    animation: serdaigle-pulse 3s infinite;
+}
+
+/* Scrollbar personnalisée Serdaigle */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--ravenclaw-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--ravenclaw-blue) 0%, var(--ravenclaw-bronze) 100%);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--ravenclaw-light-blue) 0%, var(--ravenclaw-light-bronze) 100%);
+}
