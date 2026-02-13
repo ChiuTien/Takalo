@@ -29,13 +29,13 @@ CREATE TABLE historiqueAppartenance(
     idObjet INT,
     idUser INT,
     idEchange INT,
-    datePerte DATE,
-    HeurePerte TIME
+    datePerte DATETIME,
 );
 
-INSERT INTO historiqueAppartenance (idObjet, idUser, idEchange, datePerte, HeurePerte) VALUES
-(1, 1, 1, '2024-01-15', '10:00:00'),
-(2, 2, 1, '2024-01-15', '10:00:00'),
-(3, 3, 2, '2024-01-20', '14:30:00'),
-(4, 4, 2, '2024-01-20', '14:30:00'),
-(5, 5, 3, '2024-01-25', '09:45:00');
+INSERT INTO historiqueAppartenance (idObjet, idUser, idEchange, datePerte) VALUES
+(1, 1, 1, '2024-01-15 10:00:00'),
+(2, 2, 1, '2024-01-15 10:00:00'),
+(3, 3, 2, '2024-01-20 14:30:00'),
+(4, 4, 2, '2024-01-20 14:30:00'),
+(5, 5, 3, '2024-01-25 09:45:00');
+
