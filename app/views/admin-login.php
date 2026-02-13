@@ -50,11 +50,11 @@
                         <p>Connectez-vous à votre espace administrateur</p>
                     </div>
 
-                    <form id="adminLoginForm">
+                    <form id="adminLoginForm" method="post" action="admin-login">
                         <div class="form-group animate-item delay-1">
-                            <label for="admin-email">Identifiant admin</label>
+                            <label for="admin-email">Nom Admin</label>
                             <div class="input-wrapper">
-                                <input type="text" class="form-control-custom" id="admin-email" placeholder="admin@echange.com" required>
+                                <input type="text" name="NomAdmin" class="form-control-custom" id="admin-email" placeholder="admin@echange.com" required>
                                 <span class="input-icon">👤</span>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                         <div class="form-group animate-item delay-1">
                             <label for="admin-password">Mot de passe</label>
                             <div class="input-wrapper">
-                                <input type="password" class="form-control-custom" id="admin-password" placeholder="••••••••" required>
+                                <input type="password" name="MdpAdmin" class="form-control-custom" id="admin-password" placeholder="••••••••" required>
                                 <span class="input-icon">🔒</span>
                             </div>
                         </div>

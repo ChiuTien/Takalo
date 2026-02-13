@@ -30,6 +30,28 @@ $router->group('', function(Router $router) use ($app) {
 		$app->render('inscription');
 	});
 
+	$router->get('/listObjet', function() use ($app) {
+		
+		$categorieController = new ControllerCategorie();
+		$categories = $categorieController->listCategorie();
+		$app->render('categorie', ['categories' => $categories]);
+
+	});
+	
+	$router->get('/listObjet/tous', function() use ($app) {
+		$objetController = new ControllerObjet();
+		$objet = $objetController->listObjet();
+		$app->render('objetByCategorie', ['objet' => $objet]);
+	});
+
+	$router->get('/listObjet/@id', function($id) use ($app) {
+		$objetController = new ControllerObjet();
+		$categorie = new Categorie();
+		$categorie->setIdCategorie($id);
+		$objet = $objetController->getObjetByCategorie($categorie);
+		$app->render('objetByCategorie', ['objet' => $objet]);
+	});
+
 	//Les Post
 	$router->post('/accueil', function() use ($app) {
 		// Récupérer les données du formulaire
@@ -82,25 +104,20 @@ $router->group('', function(Router $router) use ($app) {
 			// $app->render('inscription', ['error' => 'Erreur lors de l\'inscription.']);
 		}
 	});
-		$router->get('/listObjet', function() use ($app) {
-		
-		$categorieController = new ControllerCategorie();
-		$categories = $categorieController->listCategorie();
-		$app->render('categorie', ['categories' => $categories]);
 
-	});
-	
-	$router->get('/listObjet/tous', function() use ($app) {
-		$objetController = new ControllerObjet();
-		$objet = $objetController->listObjet();
-		$app->render('objetByCategorie', ['objet' => $objet]);
-	});
-	$router->get('/listObjet/@id', function($id) use ($app) {
-		$objetController = new ControllerObjet();
-		$categorie = new Categorie();
-		$categorie->setIdCategorie($id);
-		$objet = $objetController->getObjetByCategorie($categorie);
-		$app->render('objetByCategorie', ['objet' => $objet]);
+	$router->post('/admin-login', function() use ($app) {
+		$nom = $app->request()->data->NomAdmin;
+		$mdp = $app->request()->data->MdpAdmin;
+
+		if($nom === 'admin' && $mdp === 'admin') {
+			session_start();
+			$_SESSION['admin'] = true;
+			echo "Connexion réussie pour l'administrateur.";
+			$app->render('admin-dashboard');
+		} else {
+			echo "Nom d'utilisateur ou mot de passe incorrect pour l'administrateur.";
+			$app->render('admin-login', ['error' => 'Nom d\'utilisateur ou mot de passe incorrect.']);
+		}
 	});
 	
 }, [ SecurityHeadersMiddleware::class ]);
