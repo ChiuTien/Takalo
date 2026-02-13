@@ -7,6 +7,8 @@
             </div>
             <div class="footer-info">
             ETU004225 Christelle
+            ETU003914 Mandresy
+            ETU004339 Alexandre
             </div>
             <div class="footer-links">
                 <a href="#">À propos</a>
