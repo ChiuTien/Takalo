@@ -6,14 +6,17 @@
     <title>Échange'Objets - Catégories</title>
     
     <!-- Bootstrap CSS local -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/bootstrap/css/bootstrap.min.css">
 
     <!-- Notre fichier CSS personnalisé -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/font-awesome/css/all.min.css">
 </head>
 <body class="dashboard-page">
-    <!-- Placeholder pour le header -->
-    <div id="header-placeholder"></div>
+    <!-- Header -->
+    <?php include __DIR__ . '/header.php'; ?>
 
     <!-- Contenu principal -->
     <main>
@@ -25,30 +28,24 @@
                 </div>
 
                 <div class="categories-grid">
-                    <?php foreach ($categories as $categorie) {?>
-                           <a href="/listObjet/<?= $categorie->getIdCategorie() ?>" class="category-card animate-item delay-1">
-                        <h3><?= $categorie->getNomCategorie() ?></h3>
-                        
-                        </div>
-                    </a>
-                 <?php   }?>
-                    <!-- Catégorie Électronique -->
-                 
-
-                    
-
-                    <!-- Ajoutez les autres catégories ici... -->
+                    <!-- Catégories dynamiques -->
+                    <?php foreach ($categories as $categorie) { ?>
+                        <a href="/listObjet/<?= $categorie->getIdCategorie() ?>" class="category-card animate-item delay-1">
+                            <div class="category-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h3><?= $categorie->getValCategorie() ?></h3>
+                            <p>Découvrir les objets</p>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Placeholder pour le footer -->
-    <div id="footer-placeholder"></div>
+    <!-- Footer -->
+    <?php include __DIR__ . '/footer.php'; ?>
 
-    <!-- Script pour inclure header et footer -->
-    <script src="bootstrap/js/incude.js"></script>
-    
     <!-- Bootstrap JS local -->
     <script src="<?= BASE_URL ?>/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

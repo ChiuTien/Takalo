@@ -16,7 +16,7 @@
             public function ajouterCategorie(Categorie $categorie) : void{
                 try {
                     $valCategorie= $categorie->getValCategorie();
-                    $sql = "INSERT INTO categorie(valCategorie) VALUES (:valCategorie)";
+                    $sql = "INSERT INTO categorie(nomCategorie) VALUES (:valCategorie)";
                     $stmt = $this->db->prepare($sql);
                     $stmt->bindValue(':valCategorie', $valCategorie, PDO::PARAM_STR );
                     $stmt->execute();
@@ -39,7 +39,7 @@
                 try {
                     $idCategorie = $categorie->getIdCategorie();
                     $valCategorie = $categorie->getValCategorie();
-                    $sql = "UPDATE categorie SET valCategorie = :valCategorie WHERE idCategorie = :idCategorie";
+                    $sql = "UPDATE categorie SET nomCategorie = :valCategorie WHERE idCategorie = :idCategorie";
                     $stmt = $this->db->prepare($sql);
                     $stmt->bindValue(':valCategorie', $valCategorie, PDO::PARAM_STR);
                     $stmt->bindValue(':idCategorie', $idCategorie, PDO::PARAM_INT);
@@ -73,7 +73,7 @@
                     while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         $categorie = new Categorie();
                         $categorie->setIdCategorie($data['idCategorie']);
-                        $categorie->setValCategorie($data['valCategorie']);
+                        $categorie->setValCategorie($data['nomCategorie']);
                         $categories[] = $categorie;
                     }
                     return $categories;

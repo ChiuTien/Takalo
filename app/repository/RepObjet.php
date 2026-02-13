@@ -89,7 +89,7 @@
                     $user->setNomUser($data['nomUser']);
                     $user->setPrenomUser($data['prenomUser']);
 
-                    $objet->setUser($user);
+                    $objet->setProprietaire($user);
 
                     $categorie = new Categorie();
                     $categorie->setNomCategorie($data['nomCategorie']);

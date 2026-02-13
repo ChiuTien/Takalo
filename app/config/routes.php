@@ -5,7 +5,10 @@
 	use flight\net\Router;
 	use app\controllers\ControllerUser;
 	use \app\models\User;
-
+	use app\controllers\ControllerCategorie;
+	use app\models\Categorie;
+	use app\controllers\ControllerObjet;
+	use app\models\Objets;
 /** 
  * @var Router $router 
  * @var Engine $app
@@ -46,7 +49,7 @@ $router->group('', function(Router $router) use ($app) {
 				session_start();
 				$_SESSION['user_id'] = $user->getIdUser();
 				echo "Connexion réussie pour l'utilisateur : " . $user->getNomUser();
-				// $app->redirect('/accueil');
+				$app->redirect('/categorie');
 				return;
 			}
 		}
