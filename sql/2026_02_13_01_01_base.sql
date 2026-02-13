@@ -23,3 +23,12 @@ INSERT INTO echange (idObjetOffert, idObjetDemande, idStatut, dateEchange) VALUE
 (1, 2, 1, '2024-01-15'),
 (3, 4, 2, '2024-01-20'),
 (5, 1, 3, '2024-01-25');
+
+CREATE TABLE historiqueAppartenance(
+    idHistorique INT PRIMARY KEY AUTO_INCREMENT,
+    idObjet INT,
+    idUser INT,
+    idEchange INT,
+    datePerte DATE,
+    HeurePerte TIME
+);
