@@ -1,6 +1,5 @@
 <?php
 
-use app\controllers\ApiExampleController;
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
 use flight\net\Router;
