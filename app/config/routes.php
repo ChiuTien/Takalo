@@ -7,6 +7,7 @@
 	use \app\models\User;
 	use app\controllers\ControllerCategorie;
 	use app\controllers\ControllerObjet;
+	use app\controllers\ControllerHistoriqueAppart;
 	use app\models\Categorie;
 	use app\controllers\ControllerAdmin;
 
@@ -130,6 +131,13 @@ $router->group('', function(Router $router) use ($app) {
 		}
 
 		//$app->render('admin-login', ['error' => 'Nom d\'utilisateur ou mot de passe incorrect.']);
+	});
+
+	$app->get('/history/@id', function($id) use ($app) {
+		$historyController = new ControllerHistoriqueAppart();
+		
+		$historique = $historyController->getHistoriqueAppartenanceByObjet($id);
+		$app->render('historique', ['historique' => $historique]);
 	});
 	
 }, [ SecurityHeadersMiddleware::class ]);
