@@ -27,6 +27,11 @@
         "flightphp/runway": "^0.2 || ^1.1",
         "tracy/tracy": "^2.9"
     },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
     "config": {
         "process-timeout": 0,
         "sort-packages": true
