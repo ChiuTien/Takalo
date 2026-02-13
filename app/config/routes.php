@@ -5,7 +5,16 @@
 	use flight\net\Router;
 	use app\controllers\ControllerUser;
 	use \app\models\User;
+	use app\controllers\ControllerCategorie;
+<<<<<<<<< Temporary merge branch 1
+	use app\controllers\ControllerObjet;
+	use app\models\Categorie;
 
+=========
+	use app\models\Categorie;
+	use app\controllers\ControllerObjet;
+	use app\models\Objets;
+>>>>>>>>> Temporary merge branch 2
 /** 
  * @var Router $router 
  * @var Engine $app
@@ -68,8 +77,12 @@ $router->group('', function(Router $router) use ($app) {
 				session_start();
 				$_SESSION['user_id'] = $user->getIdUser();
 				echo "Connexion réussie pour l'utilisateur : " . $user->getNomUser();
-				// $app->redirect('/accueil');
+<<<<<<<<< Temporary merge branch 1
+				$app->render('categorie');
+=========
+				$app->redirect('/categorie');
 				return;
+>>>>>>>>> Temporary merge branch 2
 			}
 		}
 
