@@ -95,7 +95,7 @@
                     $objet->setProprietaire($user);
 
                     $categorie = new Categorie();
-                    $categorie->setNomCategorie($data['nomCategorie']);
+                    $categorie->setValCategorie($data['nomCategorie']);
                     $objet->setCategorie($categorie);
 
                     $objets[] = $objet;
@@ -111,7 +111,7 @@
         public function getHistoriqueAppartenanceById(int $idObjet): array{
             try {
                 $sql = "SELECT * FROM HistoriqueAppartenance WHERE idObjet = :idObjet ORDER BY dateDebut DESC";
-                $stmt = $this->db->query($sql);
+                $stmt = $this->db->prepare($sql);
                 $stmt->bindValue(':idObjet', $idObjet, PDO::PARAM_INT);
                 $stmt->execute();
                 $historique = [];

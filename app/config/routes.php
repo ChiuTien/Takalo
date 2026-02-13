@@ -9,7 +9,6 @@
 	use app\controllers\ControllerObjet;
 	use app\controllers\ControllerHistoriqueAppart;
 	use app\models\Categorie;
-	use app\models\Objets;
 /** 
  * @var Router $router 
  * @var Engine $app
@@ -72,8 +71,7 @@ $router->group('', function(Router $router) use ($app) {
 				session_start();
 				$_SESSION['user_id'] = $user->getIdUser();
 				echo "Connexion réussie pour l'utilisateur : " . $user->getNomUser();
-				$app->render('categorie');
-				$app->redirect('/categorie');
+				$app->render('categorie', ['categories' => (new ControllerCategorie())->listCategorie()]);
 				return;
 			}
 		}
