@@ -34,6 +34,8 @@ class ControllerObjet {
         return $this->repObjet->getObjetByCategorie($categorie);
     }
     //Misy tsy vo commit
+
+    //Angalana anle historique appartenance anle objet
     public function getHistoriqueAppartenanceByObjet(int $idObjet): array {
         return $this->repObjet->getHistoriqueAppartenanceById($idObjet);
     }
