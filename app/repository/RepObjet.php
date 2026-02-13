@@ -106,6 +106,30 @@
             return $objets;
         }
 
+        //Fonction permettant de recuperer l'historique d'appartenance d'un objet 
+        public function getHistoriqueAppartenanceById(int $idObjet): array{
+            try {
+                $sql = "SELECT * FROM HistoriqueAppartenance WHERE idObjet = :idObjet ORDER BY dateDebut DESC";
+                $stmt = $this->db->query($sql);
+                $stmt->bindValue(':idObjet', $idObjet, PDO::PARAM_INT);
+                $stmt->execute();
+                $historique = [];
+                while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $user = new User();
+                    $user->setNomUser($data['nomUser']);
+                    $user->setPrenomUser($data['prenomUser']);
+
+                    $historique[] = [
+                        'user' => $user,
+                        'dateDebut' => $data['dateDebut'],
+                        'dateFin' => $data['dateFin']
+                    ];
+                }
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+            return $historique;
+        }
     }
 
 
