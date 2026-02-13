@@ -51,7 +51,7 @@
 
                     <form id="signupForm">
                         <div class="form-group animate-item delay-1">
-                            <label for="nom">Nom complet</label>
+                            <label for="nom">Nom </label>
                             <div class="input-wrapper">
                                 <input type="text" class="form-control-custom" id="nom" placeholder="Jean Dupont" required>
                                 <span class="input-icon">👤</span>
@@ -59,10 +59,10 @@
                         </div>
 
                         <div class="form-group animate-item delay-1">
-                            <label for="email">Adresse email</label>
+                            <label for="prenom">Prenom</label>
                             <div class="input-wrapper">
-                                <input type="email" class="form-control-custom" id="email" placeholder="nom@exemple.com" required>
-                                <span class="input-icon">✉️</span>
+                                <input type="text" class="form-control-custom" id="prenom" placeholder="Jean" required>
+                                <span class="input-icon">👤</span>
                             </div>
                         </div>
 
@@ -74,28 +74,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group animate-item delay-1">
-                            <label for="confirm-password">Confirmer mot de passe</label>
-                            <div class="input-wrapper">
-                                <input type="password" class="form-control-custom" id="confirm-password" placeholder="••••••••" required>
-                                <span class="input-icon">🔒</span>
-                            </div>
-                        </div>
-
-                        <div class="form-check mb-4 animate-item delay-2">
-                            <input class="form-check-input" type="checkbox" id="terms" required>
-                            <label class="form-check-label text-secondary" for="terms">
-                                J'accepte les <a href="#" class="text-decoration-none">conditions d'utilisation</a>
-                            </label>
-                        </div>
-
                         <button type="submit" class="btn-login animate-item delay-2">
                             S'inscrire
                         </button>
 
                         <div class="signup-link animate-item delay-3">
                             Déjà un compte ?
-                            <a href="/">Se connecter</a>
+                            <a href="<?= BASE_URL ?>/">Se connecter</a>
                         </div>
                     </form>
                 </div>
