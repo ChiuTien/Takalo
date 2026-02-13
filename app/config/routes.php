@@ -26,5 +26,11 @@ $router->group('', function(Router $router) use ($app) {
 		$router->get('/users/@id:[0-9]', [ ApiExampleController::class, 'getUser' ]);
 		$router->post('/users/@id:[0-9]', [ ApiExampleController::class, 'updateUser' ]);
 	});
-	
+
+	$router->get('/admin-login', function() use ($app) {
+		$app->render('admin-login');
+	});
+	$router->get('/inscription', function() use ($app) {
+		$app->render('inscription');
+	});
 }, [ SecurityHeadersMiddleware::class ]);
