@@ -1,8 +1,9 @@
 <?php
 
-use app\middlewares\SecurityHeadersMiddleware;
-use flight\Engine;
-use flight\net\Router;
+	use app\middlewares\SecurityHeadersMiddleware;
+	use flight\Engine;
+	use flight\net\Router;
+	use app\controllers\ControllerUser;
 
 /** 
  * @var Router $router 
@@ -21,8 +22,26 @@ $router->group('', function(Router $router) use ($app) {
 		$email = $app->request()->data->email;
 		$mdp = $app->request()->data->mdp;
 
-		echo "Email: $email, Mot de passe: $mdp"; // Affiche les données pour vérification
-		// Ici, vous pouvez ajouter la logique de validation et d'authentification
+		if(empty($email) || empty($mdp)) {
+			// $app->flash('error', 'Veuillez remplir tous les champs.');
+			$app->redirect('/');
+			return;
+		}
+
+		$controllerUser = new ControllerUser();
+		$users = $controllerUser->listUser();
+
+		foreach($users as $user) {
+			if($user->getEmail() === $email && $user->getMdp() === $mdp) {
+				echo "Connexion réussie pour l'utilisateur : " . $user->getEmail();
+				// $app->flash('success', 'Connexion réussie !');
+				// $app->redirect('/accueil');
+				return;
+			}
+		}
+
+		// $app->flash('error', 'Email ou mot de passe incorrect.');
+		$app->redirect('/');
 	});
 	
 }, [ SecurityHeadersMiddleware::class ]);

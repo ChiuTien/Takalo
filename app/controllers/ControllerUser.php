@@ -1,10 +1,11 @@
 <?php
+
 namespace app\controllers;
 
 use app\models\User;
 use app\repository\RepUser;
 
-class UserController {
+class ControllerUser {
     private RepUser $repUser;
 
     public function __construct() {
