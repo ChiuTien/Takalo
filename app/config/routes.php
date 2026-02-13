@@ -49,7 +49,7 @@ $router->group('', function(Router $router) use ($app) {
 				session_start();
 				$_SESSION['user_id'] = $user->getIdUser();
 				echo "Connexion réussie pour l'utilisateur : " . $user->getNomUser();
-				$app->redirect('/categorie');
+				$app->render('categorie');
 			}
 		}
 
@@ -76,7 +76,7 @@ $router->group('', function(Router $router) use ($app) {
 			$controllerUser = new ControllerUser();
 			$controllerUser->addUser($user);
 			echo "Inscription réussie pour l'utilisateur : " . $user->getNomUser();
-			// $app->redirect('/');
+			$app->render('welcome');
 		} catch (\Throwable $th) {
 			echo "Erreur lors de l'inscription : " . $th->getMessage();
 			// $app->render('inscription', ['error' => 'Erreur lors de l\'inscription.']);
