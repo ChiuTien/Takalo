@@ -33,6 +33,7 @@ class ControllerObjet {
     public function getObjetByCategorie(Categorie $categorie): array {
         return $this->repObjet->getObjetByCategorie($categorie);
     }
+    //Misy tsy vo commit
 }
 
 ?>
