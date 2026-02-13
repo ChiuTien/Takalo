@@ -21,8 +21,8 @@
                 $sql = "INSERT INTO objet (nomObjet, idProprietaire, idCategorie) VALUES (:nomObjet, :idProprietaire, :idCategorie)";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindValue(':nomObjet', $objet->getNomObjet(), PDO::PARAM_STR);
-                $stmt->bindValue(':idProprietaire', $objet->getIdProprietaire(), PDO::PARAM_INT);
-                $stmt->bindValue(':idCategorie', $objet->getIdCategorie(), PDO::PARAM_INT);
+                $stmt->bindValue(':idProprietaire', $objet->getProprietaire(), PDO::PARAM_INT);
+                $stmt->bindValue(':idCategorie', $objet->getCategorie(), PDO::PARAM_INT);
                 $stmt->execute();
             } catch (\Throwable $th) {
                 throw $th;
@@ -41,8 +41,8 @@
         public function modifierObjet(Objet $objet):void{
             try {
                 $nomObjet = $objet->getNomObjet();
-                $idProprietaire = $objet->getIdProprietaire();
-                $idCategorie = $objet->getIdCategorie();
+                $idProprietaire = $objet->getProprietaire();
+                $idCategorie = $objet->getCategorie();
                 $idObjet = $objet->getIdObjet();
 
                 $sql = "UPDATE objet SET nomObjet = :nomObjet, idProprietaire = :idProprietaire, idCategorie = :idCategorie WHERE idObjet = :idObjet";
@@ -67,8 +67,8 @@
                 if ($data) {
                     $objet->setIdObjet($data['idObjet']);
                     $objet->setNomObjet($data['nomObjet']);
-                    $objet->setIdProprietaire($data['idProprietaire']);
-                    $objet->setIdCategorie($data['idCategorie']);
+                    $objet->setProprietaire($data['idProprietaire']);
+                    $objet->setCategorie($data['idCategorie']);
                 }
             } catch (\Throwable $th) {
                 throw $th;
