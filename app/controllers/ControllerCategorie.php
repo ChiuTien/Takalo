@@ -4,7 +4,7 @@ namespace app\controllers;
 use app\models\Categorie;
 use app\repository\RepCategorie;
 
-class CategorieController {
+class ControllerCategorie {
     private RepCategorie $repCategorie;
 
     public function __construct() {

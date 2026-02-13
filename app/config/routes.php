@@ -5,6 +5,9 @@
 	use flight\net\Router;
 	use app\controllers\ControllerUser;
 	use \app\models\User;
+	use app\controllers\ControllerCategorie;
+	use app\controllers\ControllerObjet;
+	use app\models\Categorie;
 
 /** 
  * @var Router $router 
