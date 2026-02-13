@@ -34,6 +34,9 @@ class ControllerObjet {
         return $this->repObjet->getObjetByCategorie($categorie);
     }
     //Misy tsy vo commit
+    public function getHistoriqueAppartenanceByObjet(int $idObjet): array {
+        return $this->repObjet->getHistoriqueAppartenanceById($idObjet);
+    }
 }
 
 ?>

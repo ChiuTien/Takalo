@@ -1,6 +1,7 @@
 <?php 
     namespace app\repository;
 
+    use app\models\HistoriqueAppartenance;
     use app\models\Objet;
     use app\models\User;
     use app\models\Categorie;
@@ -115,15 +116,16 @@
                 $stmt->execute();
                 $historique = [];
                 while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $user = new User();
-                    $user->setNomUser($data['nomUser']);
-                    $user->setPrenomUser($data['prenomUser']);
+                    
+                    $hA = new HistoriqueAppartenance();
+                    $hA->setIdHistorique($data['idHistorique']);
+                    $hA->setDate($data['date']);
+                    $hA->setHeure($data['heure']);
+                    $hA->setIdProprietaire($data['idProprietaire']);
+                    $hA->setIdEchange($data['idEchange']);
+                    $hA->setIdObjet($data['idObjet']);
 
-                    $historique[] = [
-                        'user' => $user,
-                        'dateDebut' => $data['dateDebut'],
-                        'dateFin' => $data['dateFin']
-                    ];
+                    $historique[] = $hA;
                 }
             } catch (\Throwable $th) {
                 throw $th;
