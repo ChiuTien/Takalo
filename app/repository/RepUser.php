@@ -18,11 +18,11 @@
                 $nom = $user->getNomUser();
                 $prenom = $user->getPrenomUser();
                 $mdp = $user->getMdpUser();
-                $sql = "INSERT INTO users(nomUser, prenomUser, motDePasseUser) VALUES (:nom, :prenom, :mdp)";
+                $sql = "INSERT INTO user(nomUser, prenomUser, motDePasseUser) VALUES (:nom, :prenom, :mdp)";
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
-                $stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
-                $stmt->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+                $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
+                $stmt->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+                $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
                 $stmt->execute();
             } catch (\Throwable $th) {
                 throw $th;
@@ -31,9 +31,9 @@
         public function deleteUser(int $id) : void{
             try {
                 
-                $sql = "DELETE FROM users WHERE idUser = :id";
+                $sql = "DELETE FROM user WHERE idUser = :id";
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
             } catch (\Throwable $th) {
                 throw $th;
@@ -45,12 +45,12 @@
                 $nom = $user->getNomUser();
                 $prenom = $user->getPrenomUser();
                 $mdp = $user->getMdpUser();
-                $sql = "UPDATE users SET nomUser = :nom, prenomUser = :prenom, motDePasseUser = :mdp WHERE idUser = :id";
+                $sql = "UPDATE user SET nomUser = :nom, prenomUser = :prenom, motDePasseUser = :mdp WHERE idUser = :id";
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
-                $stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
-                $stmt->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
+                $stmt->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+                $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
                 $stmt->execute();
             } catch (\Throwable $th) {
                 throw $th;
@@ -59,9 +59,9 @@
         public function getUserById(int $id) : User{
             $user = new User();
             try {
-                $sql = "SELECT * FROM users WHERE idUser = :id";
+                $sql = "SELECT * FROM user WHERE idUser = :id";
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 if ($data) {
@@ -79,7 +79,7 @@
         }
         public function getAllUser() :array{
             try {
-                $sql = "SELECT * FROM users";
+                $sql = "SELECT * FROM user";
                 $stmt = $this->db->prepare($sql);
                 $stmt->execute();
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
