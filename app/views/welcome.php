@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 </head>
 
-<body>
+<body class="login-page">
     <div class="container login-container">
         <div class="row g-0">
             <!-- Section gauche -->
