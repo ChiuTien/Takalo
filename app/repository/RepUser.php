@@ -79,7 +79,7 @@
         }
         public function getAllUser() :array{
             try {
-                $sql = "SELECT * FROM users";
+                $sql = "SELECT * FROM user";
                 $stmt = $this->db->prepare($sql);
                 $stmt->execute();
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
