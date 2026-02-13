@@ -4,7 +4,7 @@ namespace app\controllers;
 use app\models\Echange;
 use app\repository\RepEchange;
 
-class EchangeController {
+class ControllerEchange {
     private RepEchange $repEchange;
 
     public function __construct() {

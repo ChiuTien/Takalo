@@ -1,7 +1,6 @@
 <?php 
     namespace app\repository;
 
-    use app\models\Echange;
     use app\models\HistoriqueAppartenance;
     use PDO;
     use Flight;
