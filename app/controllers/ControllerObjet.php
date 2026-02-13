@@ -1,6 +1,6 @@
 <?php
 namespace app\controllers;
-
+use app\models\Categorie;
 use app\models\Objet;
 use app\repository\RepObjet;
 
@@ -29,6 +29,9 @@ class ObjetController {
 
     public function getObjetById(int $id): Objet {
         return $this->repObjet->getObjetById($id);
+    }
+     public function getObjetByCategorie(Categorie $categorie): array {
+        return $this->repObjet->getObjetByCategorie($categorie);
     }
 }
 

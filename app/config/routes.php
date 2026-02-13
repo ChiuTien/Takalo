@@ -51,5 +51,25 @@ $router->group('', function(Router $router) use ($app) {
 	$router->get('/inscription', function() use ($app) {
 		$app->render('inscription');
 	});
+		$router->get('/listObjet', function() use ($app) {
+		
+		$categorieController = new ControllerCategorie();
+		$categories = $categorieController->listCategorie();
+		$app->render('categorie', ['categories' => $categories]);
+
+	});
+	
+	$router->get('/listObjet/tous', function() use ($app) {
+		$objetController = new ControllerObjet();
+		$objet = $objetController->listObjet();
+		$app->render('objetByCategorie', ['objet' => $objet]);
+	});
+	$router->get('/listObjet/@id', function($id) use ($app) {
+		$objetController = new ControllerObjet();
+		$categorie = new Categorie();
+		$categorie->setIdCategorie($id);
+		$objet = $objetController->getObjetByCategorie($categorie);
+		$app->render('objetByCategorie', ['objet' => $objet]);
+	});
 	
 }, [ SecurityHeadersMiddleware::class ]);

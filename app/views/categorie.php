@@ -25,27 +25,17 @@
                 </div>
 
                 <div class="categories-grid">
+                    <?php foreach ($categories as $categorie) {?>
+                           <a href="/listObjet/<?= $categorie->getIdCategorie() ?>" class="category-card animate-item delay-1">
+                        <h3><?= $categorie->getNomCategorie() ?></h3>
+                        
+                        </div>
+                    </a>
+                 <?php   }?>
                     <!-- Catégorie Électronique -->
-                    <a href="objet.html?id=1" class="category-card animate-item delay-1">
-                        <span class="category-icon">📱</span>
-                        <h3>Électronique</h3>
-                        <p class="category-description">Smartphones, ordinateurs, tablettes, accessoires high-tech</p>
-                        <div class="category-stats">
-                            <span><i>📦</i> 234 objets</span>
-                            <span><i>💰</i> 50-2000€</span>
-                        </div>
-                    </a>
+                 
 
-                    <!-- Catégorie Mode -->
-                    <a href="objet.html?id=2" class="category-card animate-item delay-1">
-                        <span class="category-icon">👕</span>
-                        <h3>Mode & Accessoires</h3>
-                        <p class="category-description">Vêtements, chaussures, sacs, bijoux, montres</p>
-                        <div class="category-stats">
-                            <span><i>📦</i> 189 objets</span>
-                            <span><i>💰</i> 10-500€</span>
-                        </div>
-                    </a>
+                    
 
                     <!-- Ajoutez les autres catégories ici... -->
                 </div>
