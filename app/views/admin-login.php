@@ -6,13 +6,13 @@
     <title>Échange'Objets - Administration</title>
     
     <!-- Bootstrap CSS local -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/bootstrap/css/bootstrap.min.css">
 
     <!-- Notre fichier CSS personnalisé -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 </head>
 <body class="login-page">
-    <div class="container login-container">
+    <div class="container-fluid login-container px-0">
         <div class="row g-0">
             <!-- Section gauche -->
             <div class="col-md-6">
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="links-container animate-item delay-2">
-                            <a href="/" class="forgot-password">← Retour utilisateur</a>
+                            <a href="<?= BASE_URL ?>/" class="forgot-password">← Retour utilisateur</a>
                         </div>
 
                         <button type="submit" class="btn-login animate-item delay-2" style="background: linear-gradient(135deg, #2c3e50, #3498db);">

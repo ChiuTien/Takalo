@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
 </head>
 
-<body>
+<body class="login-page">
     <div class="container login-container">
         <div class="row g-0">
             <!-- Section gauche -->
@@ -98,7 +98,7 @@
 
                         <div class="links-container animate-item delay-2">
                            
-                            <a href="/admin-login" class="admin-link">
+                            <a href="<?= BASE_URL ?>/admin-login" class="admin-link">
                                 <span>👤</span>
                                 Accès administrateur
                             </a>
@@ -110,7 +110,7 @@
 
                         <div class="signup-link animate-item delay-3">
                             Nouveau sur Échange'Objets ?
-                            <a href="/inscription">Créer un compte</a>
+                            <a href="<?= BASE_URL ?>/inscription">Créer un compte</a>
                         </div>
                     </form>
                 </div>
