@@ -2,6 +2,8 @@
     namespace app\repository;
 
     use app\models\Objet;
+    use app\models\User;
+    use app\models\Categorie;
     use Flight;
     use PDO;
 
