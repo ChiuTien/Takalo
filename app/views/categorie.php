@@ -16,7 +16,7 @@
 </head>
 <body class="dashboard-page">
     <!-- Header -->
-    <?php include __DIR__ . '/header.php'; ?>
+    <?php include __DIR__ . '/layout/header.php'; ?>
 
     <!-- Contenu principal -->
     <main>
@@ -44,7 +44,7 @@
     </main>
 
     <!-- Footer -->
-    <?php include __DIR__ . '/footer.php'; ?>
+    <?php include __DIR__ . '/layout/footer.php'; ?>
 
     <!-- Bootstrap JS local -->
     <script src="<?= BASE_URL ?>/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
